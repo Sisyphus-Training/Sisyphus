@@ -18,33 +18,33 @@ const FabMenu = () => {
       >
         <div className="relative flex items-center group">
           <span className="absolute right-14 bg-gray-800 text-white px-2 py-1 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            Profile
+            Patient
           </span>
-          <button className="w-12 h-12 rounded-full bg-[#3b82f6] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+          <button className="w-12 h-12 rounded-full bg-[#141f25] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
             <User className="text-white" size={20} />
           </button>
         </div>
         <div className="relative flex items-center group">
           <span className="absolute right-14 bg-gray-800 text-white px-2 py-1 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            Workout
+            Routine
           </span>
-          <button className="w-12 h-12 rounded-full bg-[#22c55e] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+          <button className="w-12 h-12 rounded-full bg-[#141f25] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
             <Dumbbell className="text-white" size={20} />
           </button>
         </div>
         <div className="relative flex items-center group">
           <span className="absolute right-14 bg-gray-800 text-white px-2 py-1 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            Schedule
+            Training Session
           </span>
-          <button className="w-12 h-12 rounded-full bg-[#a855f7] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+          <button className="w-12 h-12 rounded-full bg-[#141f25] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
             <Clock className="text-white" size={20} />
           </button>
         </div>
         <div className="relative flex items-center group">
           <span className="absolute right-14 bg-gray-800 text-white px-2 py-1 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-            Meals
+            Nutrition Plan
           </span>
-          <button className="w-12 h-12 rounded-full bg-[#ea580c] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+          <button className="w-12 h-12 rounded-full bg-[#141f25] flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
             <Utensils className="text-white" size={20} />
           </button>
         </div>
@@ -53,7 +53,7 @@ const FabMenu = () => {
       {/* Floating Action Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="w-14 h-14 rounded-full bg-[#00b0f0] flex items-center justify-center shadow-xl transition-transform transform hover:scale-110"
+        className="w-14 h-14 rounded-full bg-cyan-400 flex items-center justify-center shadow-xl transition-transform transform hover:scale-110"
       >
         <Plus
           className={`text-white transition-transform ${
