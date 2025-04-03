@@ -16,6 +16,18 @@ const FabMenu = () => {
             : "opacity-0 translate-y-4 pointer-events-none"
         }`}
       >
+        <button className="w-12 h-12 rounded-full bg-blue-500 flex items-center justify-center shadow-lg">
+          <User className="text-white" size={20} />
+        </button>
+        <button className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center shadow-lg">
+          <Dumbbell className="text-white" size={20} />
+        </button>
+        <button className="w-12 h-12 rounded-full bg-purple-500 flex items-center justify-center shadow-lg">
+          <Clock className="text-white" size={20} />
+        </button>
+        <button className="w-12 h-12 rounded-full bg-orange-500 flex items-center justify-center shadow-lg">
+          <Utensils className="text-white" size={20} />
+        </button>
         <div className="relative flex items-center group">
           <span className="absolute right-14 bg-gray-800 text-white px-2 py-1 rounded-md text-sm opacity-0 transition-opacity duration-300 group-hover:opacity-100">
             Patient
