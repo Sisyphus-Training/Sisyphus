@@ -4,10 +4,23 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Apple, Store } from "lucide-react";
 import { MessageSquare } from "lucide-react";
-import passport from "../../public/passport.webp";
 import logo from "../../public/logo.jpg";
+import { useUser } from "@/context/UserContext";
+import { patientData, trainerData, Users } from "@/libs/UserData";
+
+
+
+
 
 const HeroSection = () => {
+  const { isPatientMode } = useUser();
+  const currentUser: Users = isPatientMode ? patientData : trainerData;
+
+
+
+
+
+
   return (
     <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-center justify-around bg-gradient-to-r from-[#141f25] to-cyan-400 rounded-xl p-4 md:p-6 overflow-hidden">
       {/* Left Section */}
@@ -31,9 +44,9 @@ const HeroSection = () => {
 
       {/* Right Section */}
       <div className="w-full md:flex-1 rounded-xl p-4 md:p-6 relative max-w-lg backdrop-blur-sm">
-        <h1 className="text-xl md:text-2xl font-bold text-black">Hairimse</h1>
+        <h1 className="text-xl md:text-2xl font-bold text-black">{currentUser.name} </h1>
         <h3 className="text-xs md:text-sm font-semibold text-gray-600">
-          Fugh Matte For Rfilestde
+          {currentUser.title}
         </h3>
         <p className="text-gray-900 mt-2 text-sm md:text-base ">
           Meta Crossplatform solts fre aponate vth the licor heavell to act your
@@ -57,7 +70,7 @@ const HeroSection = () => {
 
         <div className="absolute -top-12 -right-8 md:-top-15 md:right-16 w-24 h-24 md:w-35 md:h-35 bg-green-500 rounded-full overflow-hidden border-4">
           <Image
-            src={passport}
+            src={currentUser.profilePic}
             alt="User"
             layout="fill"
             objectFit="cover"
