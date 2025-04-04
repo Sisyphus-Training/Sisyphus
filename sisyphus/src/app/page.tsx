@@ -1,30 +1,34 @@
+"use client"
+import FabMenu from "@/components/fixedFloatingActionButton";
+import HeroSection from "@/components/Hero";
+import { useUser } from "@/context/UserContext";
 
-import Image from "next/image";
+
 
 export default function Home() {
+  const { isPatientMode, setIsPatientMode } = useUser();
+
+
+  const switchUser = (e) => {
+    setIsPatientMode((prev) => !prev)
+  }
+
+
   return (
-    <div className="w-full  bg-[#0a0b14] h-[30vh]  relative ">
+    <div className="w-full  bg-white min-h-screen  relative ">
 
-      <div className="bg-gradient-to-r from-[#00b8ff] to-[#41d98d] h-[35%] w-full "  >
+
+      <button onClick={switchUser} className=" px-4 py-2 bg-blue-700 text-white rounded-sm cursor-pointer " > {isPatientMode ? "Patient mode" : "Trainer mode"} </button>
+
+
+
+      <HeroSection />
+      <FabMenu />
+
+
+
 
     </div>
 
-    <div className=" absolute top-[50%] translate-y-[-50%] left-[5%] flex items-center space-x-4">
-      <div className="relative w-16 h-16 rounded-full overflow-hidden bg-white flex-shrink-0">
-        <Image
-          src="/trainer.jpg"
-          alt="Profile picture"
-          width={64}
-          height={64}
-          className="object-cover h-full w-full "
-        />
-      </div>
-      <div>
-        <h2 className="text-white text-xl font-bold">John Doe</h2>
-        <p className="text-gray-300 text-sm">Certified Personal Trainer</p>
-      </div>
-    </div>
-
-  </div>
   );
 }
