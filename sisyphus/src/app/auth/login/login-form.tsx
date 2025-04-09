@@ -4,9 +4,9 @@ import type React from "react"
 import { useState } from "react"
 import { useRouter } from "next/navigation"
 import { EyeIcon, EyeOffIcon } from "lucide-react"
-import { Label } from "@/components/ui/label"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
+import { Label } from "@/components/atoms/label"
+import { Input } from "@/components/atoms/input"
+import { Button } from "@/components/atoms/button"
 
 export function LoginForm() {
   const [identifier, setIdentifier] = useState("")

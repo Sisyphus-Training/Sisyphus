@@ -1,25 +1,16 @@
 "use client";
 
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/atoms/button";
 import { Apple, Store } from "lucide-react";
 import { MessageSquare } from "lucide-react";
-import logo from "../../public/logo.jpg";
-import { useUser } from "@/context/UserContext";
-import { patientData, trainerData, Users } from "@/libs/UserData";
-
-
-
-
+import logo from "../../../public/logo.jpg";
+import { useUser } from "@/components/molecules/userContext";
+import { patientData, trainerData, Users } from "@/components/atoms/userData";
 
 const HeroSection = () => {
   const { isPatientMode } = useUser();
   const currentUser: Users = isPatientMode ? patientData : trainerData;
-
-
-
-
-
 
   return (
     <section className="relative w-full min-h-[400px] flex flex-col md:flex-row items-center justify-around bg-gradient-to-r from-[#141f25] to-cyan-400 rounded-xl p-4 md:p-6 overflow-hidden">
