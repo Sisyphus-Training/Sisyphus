@@ -1,5 +1,5 @@
-import TrainerProfile from "@/components/trainer/TrainerProfile";
-import ActivePatientInfo from "@/components/trainer/ActivePatientInfo";
+import TrainerProfile from "@/components/atoms/trainerProfile";
+import ActivePatientInfo from "@/components/atoms/activePatientInfo";
 
 type Role = "trainer" | "patient";
 
