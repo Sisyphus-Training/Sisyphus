@@ -7,6 +7,7 @@ import { MessageSquare } from "lucide-react";
 import logo from "../../../public/logo.jpg";
 import { useUser } from "@/components/molecules/userContext";
 import { patientData, trainerData, Users } from "@/components/atoms/userData";
+import Sidebar from "../sidebar";
 
 const HeroSection = () => {
   const { isPatientMode } = useUser();
