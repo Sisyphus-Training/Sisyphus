@@ -1,20 +1,32 @@
-"use client"
-import FabMenu from "@/components/organisms/fixedFloatingActionButton";
-import HeroSection from "@/components/organisms/hero";
-import { useUser } from "@/components/molecules/userContext";
+import type { Metadata } from "next"
+import { Inter } from "next/font/google"
+import Sidebar from "@/components/sidebar"
+import HeroSection from "@/components/organisms/hero"
+import FabMenu from "@/components/organisms/fixedFloatingActionButton"
 
-export default function Home() {
-  const { isPatientMode, setIsPatientMode } = useUser();
+const inter = Inter({ subsets: ["latin"] })
 
-  const switchUser = () => {
-    setIsPatientMode((prev: boolean) => !prev)
-  }
+export const metadata: Metadata = {
+  title: "Fitness Trainer Dashboard",
+  description: "Fitness trainer dashboard with expandable sidebar",
+}
 
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
-    <div className="w-full  bg-white min-h-screen  relative ">
-      <button onClick={switchUser} className=" px-4 py-2 bg-blue-700 text-white rounded-sm cursor-pointer " > {isPatientMode ? "Patient mode" : "Trainer mode"} </button>
-      <HeroSection />
-      <FabMenu />
-    </div>
-  );
+    <html lang="en">
+      <body className={inter.className}>
+        <div className="flex h-screen bg-[#0a0e17] text-white">
+          <Sidebar />
+          <main className="flex-1 overflow-auto">
+            <HeroSection />
+            <FabMenu />
+          </main>
+        </div>
+      </body>
+    </html>
+  )
 }

@@ -105,7 +105,7 @@ export default function Sidebar() {
 
       <div className="flex-1 overflow-y-auto py-4 flex flex-col gap-2">
         <div className="px-3">
-          {expanded && <h3 className="text-xs uppercase text-gray-400 font-semibold px-2 mb-2">Common Tabs</h3>}
+          {expanded && <h3 className="text-xs uppercase text-gray-400 font-semibold px-2 mb-2">Patient Menu</h3>}
           <nav className="space-y-1">
             {commonNavItems.map((item) => (
               <Link
@@ -126,7 +126,7 @@ export default function Sidebar() {
         </div>
 
         <div className="px-3 mt-6">
-          {expanded && <h3 className="text-xs uppercase text-gray-400 font-semibold px-2 mb-2">Trainer-Only Tabs</h3>}
+          {expanded && <h3 className="text-xs uppercase text-gray-400 font-semibold px-2 mb-2">PT Menu</h3>}
           <nav className="space-y-1">
             {trainerNavItems.map((item) => (
               <Link
