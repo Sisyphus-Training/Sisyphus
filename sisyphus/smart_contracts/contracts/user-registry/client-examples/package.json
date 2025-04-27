@@ -1,0 +1,30 @@
+{
+  "name": "user-registry-client-examples",
+  "version": "0.1.0",
+  "description": "Client examples for interacting with the User Registry smart contract",
+  "main": "javascript-client.js",
+  "scripts": {
+    "start": "node javascript-client.js"
+  },
+  "dependencies": {
+    "stellar-sdk": "^11.0.0",
+    "@stellar/ts-soroban-sdk": "^1.0.0-rc.4",
+    "typescript": "^5.0.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/Sisyphus"
+  },
+  "keywords": [
+    "stellar",
+    "blockchain",
+    "soroban",
+    "smart-contract",
+    "user-registry"
+  ],
+  "author": "Sisyphus Team",
+  "license": "MIT"
+} 
