@@ -1,7 +1,7 @@
 "use client"
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Badge } from "@/components/ui/badge"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/atoms/avatar"
+import { Badge } from "@/components/atoms/badge"
 import { Input } from "../atoms/input"
 
 export function HeroSection({ isPatientMode = false }) {
@@ -15,7 +15,7 @@ export function HeroSection({ isPatientMode = false }) {
         <div className="flex items-center gap-4">
           <Avatar className="w-20 h-20 border-4 border-[#070b14]">
             <AvatarImage
-              src={isPatientMode ? "/patient.bewp" : "/passport.webp"}
+              src={isPatientMode ? "/patient.jpg" : "/passport.webp"}
               alt={isPatientMode ? "Patient" : "Trainer"}
               className="object-cover"
             />
