@@ -19,7 +19,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="flex h-screen bg-[#0a0e17] text-white">
+         <div className="flex h-screen bg-[#0a0e17] text-white">
           <Sidebar />
           <main className="flex-1 overflow-auto">
             <HeroSection />

@@ -81,8 +81,8 @@ export default function Sidebar() {
 
        <div
       className={cn(
-        "flex flex-col h-screen bg-[#0a0e17] border-r border-[#1a2033] transition-all duration-300",
-        expanded ? "w-64" : "w-16",
+        "flex flex-col h-screen hidden md:block bg-[#0a0e17] border-r border-[#1a2033] transition-all duration-300",
+        expanded ? "w-64" : "w-16", 
       )}
     >
       {/* Logo at the top */}
