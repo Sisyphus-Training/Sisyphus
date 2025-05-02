@@ -9,7 +9,7 @@ use soroban_sdk::{
 #[test]
 fn test_create_user() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, UserRegistry);
+    let contract_id = env.register(UserRegistry, ());
     let client = UserRegistryClient::new(&env, &contract_id);
 
     // Create a test user ID
@@ -48,7 +48,7 @@ fn test_create_user() {
 #[test]
 fn test_get_user() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, UserRegistry);
+    let contract_id = env.register(UserRegistry, ());
     let client = UserRegistryClient::new(&env, &contract_id);
 
     // Create a test user ID
@@ -86,7 +86,7 @@ fn test_get_user() {
 #[test]
 fn test_update_user() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, UserRegistry);
+    let contract_id = env.register(UserRegistry, ());
     let client = UserRegistryClient::new(&env, &contract_id);
 
     // Create a test user ID
@@ -142,7 +142,7 @@ fn test_update_user() {
 #[test]
 fn test_delete_user() {
     let env = Env::default();
-    let contract_id = env.register_contract(None, UserRegistry);
+    let contract_id = env.register(UserRegistry, ());
     let client = UserRegistryClient::new(&env, &contract_id);
 
     // Create test user IDs
