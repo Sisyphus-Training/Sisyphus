@@ -13,7 +13,6 @@ use types::{PatientData, ExerciseRoutine, MealPlan, ProgressUpdate};
 use error::ContractError;
 use trainer::TrainerInterface;
 use patient::PatientInterface;
-use data::DataStore;
 
 #[contract]
 pub struct TrainerPatientContract;
