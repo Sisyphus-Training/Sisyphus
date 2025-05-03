@@ -2,6 +2,9 @@ import React from "react"
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
+  variant?: "default" | "outline" | "ghost" | "link" | "destructive"
+  size?: "default" | "sm" | "lg" | "icon"
+  isLoading?: boolean
 }
 
 export const Button: React.FC<ButtonProps> = ({ className = "", ...props }) => {

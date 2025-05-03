@@ -19,6 +19,7 @@ import {
   ChevronLeft,
 } from "lucide-react"
 import { cn } from "@/lib/utils"
+import Image from "next/image"
 
 type NavItem = {
   title: string
@@ -77,13 +78,25 @@ export default function Sidebar() {
   const pathname = usePathname()
 
   return (
-    <div
+
+       <div
       className={cn(
-        "flex flex-col h-screen bg-[#0a0e17] border-r border-[#1a2033] transition-all duration-300",
-        expanded ? "w-64" : "w-16",
+        "flex flex-col h-screen hidden md:block bg-[#0a0e17] border-r border-[#1a2033] transition-all duration-300",
+        expanded ? "w-64" : "w-16", 
       )}
     >
-      <div className="flex items-center justify-between h-16 px-4 border-b border-[#1a2033]">
+      {/* Logo at the top */}
+      <div className="flex items-center justify-center h-24 border-b border-[#1a2033]">
+        <Image
+          src="/logo.png"
+          alt="The Sisyphus"
+          width={expanded ? 96 : 48}
+          height={expanded ? 93 : 45}
+          className="object-contain transition-all duration-300"
+        />
+      </div>
+
+      <div className="flex items-center justify-between h-12 px-4 border-b border-[#1a2033]">
         {expanded ? (
           <Link href="/dashboard" className="flex items-center gap-2 text-cyan-400 font-bold text-xl">
             <span className="text-cyan-400">FT</span>
@@ -147,7 +160,7 @@ export default function Sidebar() {
         </div>
       </div>
 
-      <div className="p-3 mt-auto border-t border-[#1a2033]">
+      <div className="p-2 mt-auto border-t border-[#1a2033]">
         <Link
           href="/settings"
           className={cn(
