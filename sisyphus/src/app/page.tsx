@@ -5,6 +5,7 @@ import FabMenu from "@/components/organisms/fixedFloatingActionButton"
 import { HeroSection } from "@/components/organisms/hero"
 import Dashboard from "@/components/dashboard"
 
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {

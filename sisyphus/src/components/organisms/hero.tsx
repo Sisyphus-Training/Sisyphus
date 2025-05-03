@@ -8,6 +8,7 @@ export function HeroSection({ isPatientMode = true }) {
 
   return (
     <div className="mb-8 p-6 bg-[#0a0e17] rounded-lg shadow-md bg-[#0a0e17] rounded-lg border border-[#1a2033]">
+
       <div className="h-32 bg-gradient-to-r from-green-500 to-blue-500 rounded-lg mb-6 relative overflow-hidden">
       </div>
 
