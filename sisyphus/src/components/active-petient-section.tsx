@@ -29,7 +29,7 @@ const patientData = {
   },
 }
 
-export default function ActivePatientSection({ isPatientMode = false }) {
+export default function ActivePatientSection({ isPatientMode = true }) {
   const [activeTab, setActiveTab] = useState("routine")
 
   return (

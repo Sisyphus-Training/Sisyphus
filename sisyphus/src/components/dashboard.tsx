@@ -7,11 +7,11 @@ import { UpcomingSessions } from "./upcoming-session"
 import ActivePatientSection from "./active-petient-section"
 import { StatsCards } from "./atoms/stats-card"
 
-export default function Dashboard({ isPatientMode = false }) {
+export default function Dashboard({ isPatientMode = true }) {
   const [activeTab, setActiveTab] = useState("overview")
 
   return (
-    <div className="w-full max-w-7xl mx-auto p-6 bg-[#0a0e17] rounded-lg border border-[#1a2033]">
+    <div className="w-full  p-6 bg-[#0a0e17] rounded-lg border border-[#1a2033]">
       {!isPatientMode && (
         <Tabs value={activeTab} onValueChange={setActiveTab} className="mb-6">
           <TabsList className="bg-[#0a0e17] w-full md:w-auto overflow-x-auto">
