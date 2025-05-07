@@ -1390,6 +1390,13 @@ dependencies = [
 ]
 
 [[package]]
+name = "trainer-patient"
+version = "0.1.0"
+dependencies = [
+ "soroban-sdk",
+]
+
+[[package]]
 name = "typenum"
 version = "1.18.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
