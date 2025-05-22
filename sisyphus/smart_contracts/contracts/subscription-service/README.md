@@ -13,7 +13,7 @@ This Soroban smart contract, built for the Stellar blockchain, manages subscript
 
 ## Deployment Instructions
 
-### Set up Soroban environment:
+### Set up Soroban environment
 
 ```bash
 # Install Rust
@@ -23,7 +23,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 cargo install soroban-cli
 ```
 
-### Compile the contract:
+### Compile the contract
 
 ```bash
 # Generate the WASM file
