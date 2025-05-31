@@ -72,7 +72,7 @@ To get a local copy up and running, follow these steps:
 - **Feature Completion:**
   - Finalize core features including patient data integration, personalized exercise plans, and progress tracking.
   - Develop a comprehensive exercise library with categorization.
-  
+
 - **User Testing:**
   - Conduct beta testing with a select group of physical therapists to gather feedback.
   - Address any critical bugs and usability issues.
@@ -85,10 +85,10 @@ To get a local copy up and running, follow these steps:
 
 - **Goal Setting Module:**
   - Implement a feature for setting and tracking patient-specific fitness and rehabilitation goals.
-  
+
 - **Customization Options:**
   - Allow therapists to customize exercise routines further based on individual patient needs.
-  
+
 - **Mobile Compatibility:**
   - Develop a mobile-responsive version of the tool for use on tablets and smartphones.
 
@@ -96,7 +96,7 @@ To get a local copy up and running, follow these steps:
 
 - **Progress Analytics:**
   - Introduce advanced analytics for tracking patient progress over time, including visual reports and insights.
-  
+
 - **Feedback Mechanism:**
   - Implement a system for patients to provide feedback on exercises and routines.
 
@@ -107,7 +107,7 @@ To get a local copy up and running, follow these steps:
 
 - **Collaboration Features:**
   - Enable features for therapists to collaborate and share routines with colleagues.
-  
+
 - **Community Forum:**
   - Launch a community forum for therapists to discuss best practices, share tips, and provide support.
 
@@ -144,3 +144,152 @@ For support or inquiries, please reach out to [Luisfe.vera@gmail.com](mailto:lui
 ---
 
 Thank you for using the Exercise Routine Builder! Together, we can make rehabilitation more effective and engaging for every patient.
+
+# Patient-Trainer Link Smart Contract
+
+A Stellar smart contract built with Soroban that establishes secure links between patients and personal trainers, enabling data sharing and management.
+
+## Features
+
+- **Trainer Registration**: Personal trainers can register on the platform
+- **Patient Linking**: Trainers can link patients to their account using patient addresses
+- **Data Management**: Trainers can update patient-specific data including:
+  - Exercise routines
+  - Meal plans
+  - Progress updates
+- **Access Control**: Patients can only access their own data, trainers can only update their linked patients
+- **Event Logging**: All major actions emit events for monitoring
+
+## Contract Structure
+
+### Data Types
+
+- `PatientData`: Stores patient information including routines, meal plans, and progress
+- `TrainerInfo`: Stores trainer information and patient count
+- `DataKey`: Enum for different storage keys
+
+### Main Functions
+
+1. `initialize()`: Initialize the contract
+2. `register_trainer()`: Register a new trainer
+3. `link_patient()`: Link a patient to a trainer
+4. `update_exercise_routines()`: Update patient's exercise routines
+5. `update_meal_plans()`: Update patient's meal plans
+6. `update_progress()`: Update patient's progress
+7. `get_patient_data()`: Retrieve patient data (requires patient auth)
+8. `get_trainer_info()`: Get trainer information
+9. `get_patient_trainer()`: Get the trainer linked to a patient
+10. `unlink_patient()`: Remove patient-trainer link
+
+## Deployment
+
+### Prerequisites
+
+- Rust and Cargo installed
+- Soroban CLI installed
+- Stellar testnet account with funds
+
+### Build and Deploy
+
+```bash
+# Build the contract
+cd contracts/trainer_patient_link
+cargo build --target wasm32-unknown-unknown --release
+
+# Optimize WASM
+soroban contract optimize --wasm target/wasm32-unknown-unknown/release/trainer_patient_link.wasm
+
+# Deploy to testnet
+./scripts/deploy.sh
+```
+
+### Testing
+
+Run unit tests:
+```bash
+cargo test
+```
+
+Run integration tests on testnet:
+```bash
+./scripts/test_interactions.sh
+```
+
+## Usage Examples
+
+### Register as a Trainer
+
+```bash
+soroban contract invoke \
+    --id CONTRACT_ID \
+    --source trainer \
+    --network testnet \
+    -- \
+    register_trainer \
+    --trainer_id TRAINER_ADDRESS
+```
+
+### Link a Patient
+
+```bash
+soroban contract invoke \
+    --id CONTRACT_ID \
+    --source trainer \
+    --network testnet \
+    -- \
+    link_patient \
+    --trainer_id TRAINER_ADDRESS \
+    --patient_id PATIENT_ADDRESS
+```
+
+### Update Patient Data
+
+```bash
+soroban contract invoke \
+    --id CONTRACT_ID \
+    --source trainer \
+    --network testnet \
+    -- \
+    update_exercise_routines \
+    --trainer_id TRAINER_ADDRESS \
+    --patient_id PATIENT_ADDRESS \
+    --routines '["Exercise 1", "Exercise 2"]'
+```
+
+### Patient Access Data
+
+```bash
+soroban contract invoke \
+    --id CONTRACT_ID \
+    --source patient \
+    --network testnet \
+    -- \
+    get_patient_data \
+    --patient_id PATIENT_ADDRESS
+```
+
+## Security Considerations
+
+1. **Authentication**: All sensitive operations require authentication from the appropriate party
+2. **Authorization**: Only linked trainers can update patient data
+3. **Data Privacy**: Patients can only access their own data
+4. **Error Handling**: Comprehensive error messages for debugging while maintaining security
+
+## Error Codes
+
+- `exists`: Trainer already registered
+- `no_trainer`: Trainer not found
+- `inactive`: Trainer account is inactive
+- `linked`: Patient already linked to a trainer
+- `no_data`: Patient data not found
+- `no_link`: No link exists between patient and trainer
+- `wrong_trainer`: Trainer is not authorized for this patient
+- `not_linked`: Patient-trainer link not found
+
+## Future Enhancements
+
+- Notification system for data updates
+- Multi-trainer support for patients
+- Data archival and history tracking
+- Integration with health monitoring devices
+- Export functionality for patient data
